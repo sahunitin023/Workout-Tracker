@@ -1,4 +1,4 @@
-import keys
+import os
 import requests
 from exercise_model import ExerciseModel
 from sheety_logic import add_exercise
@@ -6,8 +6,8 @@ from sheety_logic import add_exercise
 
 nutri_endpoint = 'https://trackapi.nutritionix.com/v2/natural/exercise'
 headers = {
-    'x-app-id': keys.NUTRI_APP_ID,
-    'x-app-key': keys.NUTRI_API_KEY
+    'x-app-id': os.environ.get("NIX_APP_ID"),
+    'x-app-key': os.environ.get("NIX_APP_KEY")
 }
 body = {
     'query': input("Tell me which exercises you did today: "),

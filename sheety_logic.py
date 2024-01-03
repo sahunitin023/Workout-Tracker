@@ -1,12 +1,13 @@
 import requests
 from datetime import datetime
 from exercise_model import ExerciseModel
-import keys
+# import keys
+import os
 
 sheety_post_endpoint = 'https://api.sheety.co/9d7e9fe17e6cd09cf7489b2c0737933d/workoutTracker/workouts'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {keys.SHEETY_AUTH_KEY}'
+    'Authorization': f'Bearer {os.environ.get("SHEETY_TOKEN")}'
 }
 
 today_date = datetime.now().strftime("%d/%m/%Y")
